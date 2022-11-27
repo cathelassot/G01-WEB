@@ -48,6 +48,9 @@ router.get("/agrupar/:args", (req, res) => {
     //nombres = ["juan,""andrea","daniel","laura"]
     res.send(nombres)
     })
+//POST se usa para colocar cosas nuevas 
+//PUT se usa la actualizar los dato
+//DELETE se usa para eliminar un recurso
 
 router.get("/:nombre", (req, res) => {//para llamar una variable luego del / se pone : + lo q se quiere
     //implementar codigo

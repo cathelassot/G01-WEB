@@ -48,6 +48,6 @@ app.get("/", (req, res) => {
 //     //implementar codigo, el get es para optener una peticion
 //     res.redirect("/home/G01")//redirect lo que hace es reemplazar la direccion de /direccion es ir a /home/G01 redirige
 // } )
-
+app.use(express.json())
 app.use("/usuario",UserRouter)
 app.use("/home", homeRouter)
