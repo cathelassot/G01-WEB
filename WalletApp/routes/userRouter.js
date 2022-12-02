@@ -6,7 +6,7 @@ const userRouter = express.Router()
 //CRUD 
 //CREAR: POST
 userRouter.post("/", (req, res)=>{
-    crearUser(res)
+    crearUser(req, res)
 })
 //LEER: GET 
 userRouter.get("/", (req, res)=>{
