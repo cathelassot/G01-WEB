@@ -1,5 +1,6 @@
 import express from "express"
 import mongoose from "mongoose";
+import testRouter from "./routes/testRouter.js";
 import userRouter from "./routes/UserRouter.js";
 
 const app = express();
@@ -23,3 +24,5 @@ mongoose.connect("mongodb+srv://SydenApp:SydenApp@clustersydenapp.heb9m49.mongod
 //Midleware 
 app.use(express.json())
 app.use("/user", userRouter)
+app.use("/test", testRouter)
+
