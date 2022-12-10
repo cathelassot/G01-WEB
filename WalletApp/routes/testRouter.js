@@ -3,16 +3,19 @@ import userModel from "../models/userModel.js";
 
 const testRouter = express.Router()
 
-testRouter.get("/:nombre", async (req, res) => {
+testRouter.get("/", async (req, res) => {
 
-    const nombre = req.params.nombre
+    // const variable = req.body.variable
 
     let documentos;
 
     try {
-        documentos = await userModel.find({nombre}) 
+        documentos = await userModel.find
+            ({
+                "edad": { $gte: 20, $lte: 40 }
+            }).sort({ "edad": -1 })//sort es para ordenar los campos ej ascendente (1) en la edaad y descendente es con -1
     } catch (error) {
-        
+
     }
     res.json(documentos)
 })

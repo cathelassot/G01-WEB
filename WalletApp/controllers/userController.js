@@ -50,7 +50,7 @@ export async function updateUser(req, res) {
     let documento
 
     try {
-        documento = await userModel.updateOne({"_id":id}, updates)//dentro de (la primer peticion es q busq ese id, con el segudo es q haga el cambio)
+        documento = await userModel.updateOne({"_id":id}, updates, {runValidators: true})//dentro de (la primer peticion es q busq ese id, con el segudo es q haga el cambio)
     } catch (error) {
         res.status(400).json(error.message)
         return
