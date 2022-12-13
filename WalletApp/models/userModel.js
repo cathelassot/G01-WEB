@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const perfil = mongoose.Schema({
+const perfil = new mongoose.Schema({
     mennsaje: {type:String, required:true},
     estado: String
 })
@@ -16,11 +16,20 @@ function validacionPar(numero){
 }
 
 
-const userModel = mongoose.Schema({
+const userModel = new mongoose.Schema({
     // "_id": {type:Number, unique:true},    
-    "nombre": {type:String, required:true, minLength:3, maxLength:30, unique: true},//required es una validacion osea se dice q es requrido
-    "edad": {type:Number, required:true, min:14, max:90, validate: {validator: validacionPar, message: "La edad debe ser numero par" }},//defaul: tbnse puede poner eje default:carlos osea si no escriben nombre sale el vr por defecto q seriacarlos
-    "ciudad": {type:String, required:true, enum:ciudadesPosibles},//min y max = valor minimo y maximo 
+    "nombre": {
+        type:String,
+        required:true,
+        minLength:3, 
+        maxLength:30, 
+        unique: true},//required es una validacion osea se dice q es requrido
+    "password":{
+        type: String,
+        required: true
+    }
+    // "edad": {type:Number, required:true, min:14, max:90, validate: {validator: validacionPar, message: "La edad debe ser numero par" }},//defaul: tbnse puede poner eje default:carlos osea si no escriben nombre sale el vr por defecto q seriacarlos
+    // "ciudad": {type:String, required:true, enum:ciudadesPosibles},//min y max = valor minimo y maximo 
     // "correo": {type:String, required:true, minLength: 3, maxLength:250, unique:true},
     // "activo":Boolean,
     // "notas":Array,

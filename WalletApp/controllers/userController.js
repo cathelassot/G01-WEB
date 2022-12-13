@@ -1,4 +1,5 @@
 import userModel from "../models/userModel.js"
+import bcrypt from "bcrypt"
 
 //CRUD
 //create
@@ -7,6 +8,14 @@ export async function crearUser(req, res) { // async es para q cargue rapidament
     // const {nombre, edad, ciudad} = req.body.usuario//el req es la ¿?peticion del cuerop q hace el usuario
 
     const usuario = req.body.usuario
+
+    const {password} = usuario
+
+    const salt = await bcrypt.genSalt(10)
+
+    const encriptedPassword = await bcrypt.hash(password, salt)
+
+    usuario.password = encriptedPassword
 
     let documento 
 
